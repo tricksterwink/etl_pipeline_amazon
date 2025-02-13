@@ -1,0 +1,28 @@
+[2025-02-13T10:35:04.648+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fetch_and_store_amazon_books.get_amazon_data_books manual__2025-02-13T10:33:01.817067+00:00 [queued]>
+[2025-02-13T10:35:04.652+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fetch_and_store_amazon_books.get_amazon_data_books manual__2025-02-13T10:33:01.817067+00:00 [queued]>
+[2025-02-13T10:35:04.652+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-02-13T10:35:04.660+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): get_amazon_data_books> on 2025-02-13 10:33:01.817067+00:00
+[2025-02-13T10:35:04.662+0000] {standard_task_runner.py:60} INFO - Started process 332 to run task
+[2025-02-13T10:35:04.664+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'fetch_and_store_amazon_books', 'get_amazon_data_books', 'manual__2025-02-13T10:33:01.817067+00:00', '--job-id', '115', '--raw', '--subdir', 'DAGS_FOLDER/app.py', '--cfg-path', '/tmp/tmp7dyd5eui']
+[2025-02-13T10:35:04.664+0000] {standard_task_runner.py:88} INFO - Job 115: Subtask get_amazon_data_books
+[2025-02-13T10:35:04.687+0000] {task_command.py:423} INFO - Running <TaskInstance: fetch_and_store_amazon_books.get_amazon_data_books manual__2025-02-13T10:33:01.817067+00:00 [running]> on host 7500ade24691
+[2025-02-13T10:35:04.713+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fetch_and_store_amazon_books' AIRFLOW_CTX_TASK_ID='get_amazon_data_books' AIRFLOW_CTX_EXECUTION_DATE='2025-02-13T10:33:01.817067+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-13T10:33:01.817067+00:00'
+[2025-02-13T10:35:05.029+0000] {app.py:81} ERROR - Error fetching page 1: 503 Server Error: Service Unavailable for url: https://www.amazon.com/s?k=data+engineering+books&page=1
+[2025-02-13T10:35:05.030+0000] {app.py:99} ERROR - Failed to scrape Amazon books: No books were successfully scraped
+[2025-02-13T10:35:05.031+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/app.py", line 85, in get_amazon_data_books
+    raise ValueError("No books were successfully scraped")
+ValueError: No books were successfully scraped
+[2025-02-13T10:35:05.043+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=fetch_and_store_amazon_books, task_id=get_amazon_data_books, execution_date=20250213T103301, start_date=20250213T103504, end_date=20250213T103505
+[2025-02-13T10:35:05.054+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 115 for task get_amazon_data_books (No books were successfully scraped; 332)
+[2025-02-13T10:35:05.065+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-02-13T10:35:05.081+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

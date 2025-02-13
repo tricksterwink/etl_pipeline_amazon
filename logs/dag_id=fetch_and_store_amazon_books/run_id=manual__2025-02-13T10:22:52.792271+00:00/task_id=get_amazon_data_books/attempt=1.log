@@ -1,0 +1,14 @@
+[2025-02-13T10:25:00.829+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fetch_and_store_amazon_books.get_amazon_data_books manual__2025-02-13T10:22:52.792271+00:00 [queued]>
+[2025-02-13T10:25:00.836+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fetch_and_store_amazon_books.get_amazon_data_books manual__2025-02-13T10:22:52.792271+00:00 [queued]>
+[2025-02-13T10:25:00.838+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-02-13T10:25:00.848+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): get_amazon_data_books> on 2025-02-13 10:22:52.792271+00:00
+[2025-02-13T10:25:00.853+0000] {standard_task_runner.py:60} INFO - Started process 125 to run task
+[2025-02-13T10:25:00.855+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'fetch_and_store_amazon_books', 'get_amazon_data_books', 'manual__2025-02-13T10:22:52.792271+00:00', '--job-id', '94', '--raw', '--subdir', 'DAGS_FOLDER/app.py', '--cfg-path', '/tmp/tmpbhw898ly']
+[2025-02-13T10:25:00.856+0000] {standard_task_runner.py:88} INFO - Job 94: Subtask get_amazon_data_books
+[2025-02-13T10:25:00.908+0000] {task_command.py:423} INFO - Running <TaskInstance: fetch_and_store_amazon_books.get_amazon_data_books manual__2025-02-13T10:22:52.792271+00:00 [running]> on host 7500ade24691
+[2025-02-13T10:25:00.972+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fetch_and_store_amazon_books' AIRFLOW_CTX_TASK_ID='get_amazon_data_books' AIRFLOW_CTX_EXECUTION_DATE='2025-02-13T10:22:52.792271+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-13T10:22:52.792271+00:00'
+[2025-02-13T10:25:01.862+0000] {logging_mixin.py:188} INFO - Failed to retrieve the page
+[2025-02-13T10:25:01.866+0000] {python.py:201} INFO - Done. Returned value was: []
+[2025-02-13T10:25:01.886+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=fetch_and_store_amazon_books, task_id=get_amazon_data_books, execution_date=20250213T102252, start_date=20250213T102500, end_date=20250213T102501
+[2025-02-13T10:25:01.954+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-02-13T10:25:01.970+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
